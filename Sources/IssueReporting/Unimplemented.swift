@@ -174,6 +174,10 @@ public func unimplemented<Result>(
 /// An error thrown from throwing `unimplemented` closures.
 public struct UnimplementedFailure: Error {
   public let description: String
+
+  public init(description: String) {
+    self.description = description
+  }
 }
 
 package func _fail(
