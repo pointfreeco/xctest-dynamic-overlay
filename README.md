@@ -1,4 +1,4 @@
-# xctest-dynamic-overlay
+# XCTestDynamicOverlay
 
 > [!IMPORTANT]
 > This library now lives at
