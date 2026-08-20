@@ -13,28 +13,22 @@ let package = Package(
   ],
 
   products: [
-    .library(name: "IssueReporting", targets: ["IssueReportingForwarding"]),
-    // NB: This product must/Users/brandon/Library/Developer/Xcode/DerivedData/coexistence-demo-dyojeqontcsktqbbklqcglvbiwqo/SourcePackages/checkouts/swift-issue-reporting not be '.dynamic': the real 'IssueReportingTestSupport' dylib from
-    //     'swift-issue-reporting' is already in the graph, and a second dynamic product with the
-    //     same name would collide with it on the built artifact's file name.
-    .library(
-      name: "IssueReportingTestSupport",
-      targets: ["IssueReportingTestSupportForwarding"]
-    ),
+    .library(name: "IssueReporting", targets: ["_IssueReporting"]),
+    .library(name: "IssueReportingTestSupport", targets: ["_IssueReportingTestSupport"]),
     .library(name: "XCTestDynamicOverlay", targets: ["XCTestDynamicOverlay"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/pointfreeco/swift-issue-reporting", from: "2.0.0")
+    .package(url: "https://github.com/pointfreeco/swift-issue-reporting", from: "2.1.0")
   ],
   targets: [
     .target(
-      name: "IssueReportingForwarding",
+      name: "_IssueReporting",
       dependencies: [
         .product(name: "IssueReporting", package: "swift-issue-reporting")
       ]
     ),
     .target(
-      name: "IssueReportingTestSupportForwarding",
+      name: "_IssueReportingTestSupport",
       dependencies: [
         .product(name: "IssueReportingTestSupport", package: "swift-issue-reporting")
       ]

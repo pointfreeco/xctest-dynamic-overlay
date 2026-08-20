@@ -12,7 +12,7 @@ func _fail(
   column: UInt
 ) {
   var debugDescription = """
-     …
+     ...
 
       Defined in '\(function)' at:
         \(fileID):\(line)
