@@ -8,7 +8,7 @@
 > changes.
 
 Do not depend on this library directly anymore, and instead update your dependencies to
-[swift-issue-reporting:]
+[swift-issue-reporting]:
 
 ```diff
 -.package(url: "https://github.com/pointfreeco/xctest-dynamic-overlay", from: "1.0.0"),
