@@ -1,0 +1,45 @@
+{
+  "configurations" : [
+    {
+      "id" : "A4B6699D-624A-42BB-A98E-F210B2D25DAC",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Examples\/Examples.xcodeproj",
+        "identifier" : "CADE79BA2C4A9D2D005A85F7",
+        "name" : "ExamplesTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "XCTestDynamicOverlayTests",
+        "name" : "XCTestDynamicOverlayTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "IssueReportingTests",
+        "name" : "IssueReportingTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "IssueReportingTestsNoSupport",
+        "name" : "IssueReportingTestsNoSupport"
+      }
+    }
+  ],
+  "version" : 1
+}
