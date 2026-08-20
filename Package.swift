@@ -11,46 +11,32 @@ let package = Package(
     .tvOS(.v13),
     .watchOS(.v6),
   ],
+
   products: [
-    .library(name: "IssueReporting", targets: ["IssueReporting"]),
-    .library(
-      name: "IssueReportingTestSupport",
-      type: ProcessInfo.processInfo.environment["OMIT_DYNAMIC_TEST_SUPPORT"] == nil
-        ? .dynamic
-        : nil,
-      targets: ["IssueReportingTestSupport"]
-    ),
+    .library(name: "IssueReporting", targets: ["_IssueReporting"]),
+    .library(name: "IssueReportingTestSupport", targets: ["_IssueReportingTestSupport"]),
     .library(name: "XCTestDynamicOverlay", targets: ["XCTestDynamicOverlay"]),
+  ],
+  dependencies: [
+    .package(url: "https://github.com/pointfreeco/swift-issue-reporting", from: "2.1.0")
   ],
   targets: [
     .target(
-      name: "IssueReporting"
-    ),
-    .testTarget(
-      name: "IssueReportingTests",
+      name: "_IssueReporting",
       dependencies: [
-        "IssueReporting",
-        "IssueReportingTestSupport",
-      ]
-    ),
-    .testTarget(
-      name: "IssueReportingTestsNoSupport",
-      dependencies: [
-        "IssueReporting"
+        .product(name: "IssueReporting", package: "swift-issue-reporting")
       ]
     ),
     .target(
-      name: "IssueReportingTestSupport"
+      name: "_IssueReportingTestSupport",
+      dependencies: [
+        .product(name: "IssueReportingTestSupport", package: "swift-issue-reporting")
+      ]
     ),
     .target(
       name: "XCTestDynamicOverlay",
-      dependencies: ["IssueReporting"]
-    ),
-    .testTarget(
-      name: "XCTestDynamicOverlayTests",
       dependencies: [
-        "IssueReportingTestSupport",
-        "XCTestDynamicOverlay",
+        .product(name: "IssueReporting", package: "swift-issue-reporting")
       ]
     ),
   ],
