@@ -1,8 +1,0 @@
-version: 1
-builder:
-  configs:
-    - documentation_targets:
-        - IssueReporting
-        - XCTestDynamicOverlay
-      custom_documentation_parameters:
-        - '--enable-experimental-overloaded-symbol-presentation'
