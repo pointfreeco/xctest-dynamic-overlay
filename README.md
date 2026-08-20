@@ -51,8 +51,9 @@ There is no urgency: the old URL will continue to work indefinitely.
 
 Your dependency graph has resolved this package to a version earlier than 1.12.0 alongside
 [swift-issue-reporting]. Update your dependencies
-(**File&nbsp;❯&nbsp;Packages&nbsp;❯Update&nbsp;to&nbsp;Latest&nbsp;Package&nbsp;Versions** in Xcode,
-or `swift package update` on the command line) so that this package resolves to 1.12.0 or later.
+(**File&nbsp;❯&nbsp;Packages&nbsp;❯&nbsp;Update&nbsp;to&nbsp;Latest&nbsp;Package&nbsp;Versions** in
+Xcode, or `swift package update` on the command line) so that this package resolves to 1.12.0 or
+later.
 
 ## License
 
