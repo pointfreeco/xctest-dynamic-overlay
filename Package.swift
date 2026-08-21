@@ -35,9 +35,7 @@ let package = Package(
     ),
     .target(
       name: "XCTestDynamicOverlay",
-      dependencies: [
-        .product(name: "IssueReporting", package: "swift-issue-reporting")
-      ],
+      dependencies: ["_IssueReporting"],
       path: "Sources/_XCTestDynamicOverlay"
     ),
   ],
