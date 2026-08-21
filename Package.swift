@@ -11,8 +11,9 @@ let package = Package(
     .tvOS(.v13),
     .watchOS(.v6),
   ],
+
   products: [
-    .library(name: "IssueReporting", targets: ["XCTestDynamicOverlay"]),
+    .library(name: "IssueReporting", targets: ["_IssueReporting"]),
     .library(name: "IssueReportingTestSupport", targets: ["_IssueReportingTestSupport"]),
     .library(name: "XCTestDynamicOverlay", targets: ["XCTestDynamicOverlay"]),
   ],
@@ -21,6 +22,12 @@ let package = Package(
   ],
   targets: [
     .target(
+      name: "_IssueReporting",
+      dependencies: [
+        .product(name: "IssueReporting", package: "swift-issue-reporting")
+      ]
+    ),
+    .target(
       name: "_IssueReportingTestSupport",
       dependencies: [
         .product(name: "IssueReportingTestSupport", package: "swift-issue-reporting")
@@ -28,9 +35,7 @@ let package = Package(
     ),
     .target(
       name: "XCTestDynamicOverlay",
-      dependencies: [
-        .product(name: "IssueReporting", package: "swift-issue-reporting")
-      ],
+      dependencies: ["_IssueReporting"],
       path: "Sources/_XCTestDynamicOverlay"
     ),
   ],
