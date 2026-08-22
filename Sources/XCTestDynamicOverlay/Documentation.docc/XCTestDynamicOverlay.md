@@ -14,18 +14,3 @@ Define XCTest assertion helpers directly in your application and library code.
 
 - <doc:GettingStarted>
 - <doc:MigrationGuides>
-
-### Overlays
-
-- ``XCTFail(_:file:line:)``
-- ``XCTExpectFailure(_:enabled:strict:failingBlock:issueMatcher:)``
-
-### Unimplemented dependencies
-
-- ``unimplemented(_:placeholder:fileID:line:)``
-- ``unimplemented(_:fileID:line:)``
-
-### Deprecated interfaces
-
-- <doc:Deprecations>
-
