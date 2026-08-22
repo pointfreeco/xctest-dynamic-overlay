@@ -25,7 +25,7 @@ Do not depend on this library directly anymore, and instead update your dependen
 You can do this on your own time since this repo exists to make the transition easy.
 
 If you depend on this package _directly_, see the
-[migration guide](https://swiftpackageindex.com/pointfreeco/xctest-dynamic-overlay/main/documentation/xctestdynamicoverlay/migratingto1.13)
+[migration guide](Sources/XCTestDynamicOverlay/Documentation.docc/Articles/MigrationGuides/MigratingTo1.13.md)
 for the steps to take.
 
 ## License
