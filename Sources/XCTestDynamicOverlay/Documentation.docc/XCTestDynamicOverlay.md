@@ -12,5 +12,4 @@ Define XCTest assertion helpers directly in your application and library code.
 
 ### Essentials
 
-- <doc:GettingStarted>
 - <doc:MigrationGuides>
