@@ -26,32 +26,12 @@ let package = Package(
     .target(
       name: "IssueReporting"
     ),
-    .testTarget(
-      name: "IssueReportingTests",
-      dependencies: [
-        "IssueReporting",
-        "IssueReportingTestSupport",
-      ]
-    ),
-    .testTarget(
-      name: "IssueReportingTestsNoSupport",
-      dependencies: [
-        "IssueReporting"
-      ]
-    ),
     .target(
       name: "IssueReportingTestSupport"
     ),
     .target(
       name: "XCTestDynamicOverlay",
       dependencies: ["IssueReporting"]
-    ),
-    .testTarget(
-      name: "XCTestDynamicOverlayTests",
-      dependencies: [
-        "IssueReportingTestSupport",
-        "XCTestDynamicOverlay",
-      ]
     ),
   ],
   swiftLanguageModes: [.v6]
