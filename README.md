@@ -12,7 +12,7 @@ Do not depend on this library directly anymore, and instead update your dependen
 
 ```diff
 -.package(url: "https://github.com/pointfreeco/xctest-dynamic-overlay", from: "1.0.0"),
-+.package(url: "https://github.com/pointfreeco/swift-issue-reporting", from: "2.0.0"),
++.package(url: "https://github.com/pointfreeco/swift-issue-reporting", from: "2.1.0"),
 ```
 
 …and update any target dependencies accordingly:
