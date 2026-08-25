@@ -1,4 +1,4 @@
-// swift-tools-version: 6.4
+// swift-tools-version: 6.0
 
 import Foundation
 import PackageDescription
@@ -11,31 +11,27 @@ let package = Package(
     .tvOS(.v13),
     .watchOS(.v6),
   ],
-
   products: [
-    .library(name: "IssueReporting", targets: ["_IssueReporting"]),
-    .library(name: "IssueReportingTestSupport", targets: ["_IssueReportingTestSupport"]),
+    .library(name: "IssueReporting", targets: ["IssueReporting"]),
+    .library(
+      name: "IssueReportingTestSupport",
+      type: ProcessInfo.processInfo.environment["OMIT_DYNAMIC_TEST_SUPPORT"] == nil
+        ? .dynamic
+        : nil,
+      targets: ["IssueReportingTestSupport"]
+    ),
     .library(name: "XCTestDynamicOverlay", targets: ["XCTestDynamicOverlay"]),
-  ],
-  dependencies: [
-    .package(url: "https://github.com/pointfreeco/swift-issue-reporting", from: "2.1.0")
   ],
   targets: [
     .target(
-      name: "_IssueReporting",
-      dependencies: [
-        .product(name: "IssueReporting", package: "swift-issue-reporting")
-      ]
+      name: "IssueReporting"
     ),
     .target(
-      name: "_IssueReportingTestSupport",
-      dependencies: [
-        .product(name: "IssueReportingTestSupport", package: "swift-issue-reporting")
-      ]
+      name: "IssueReportingTestSupport"
     ),
     .target(
       name: "XCTestDynamicOverlay",
-      dependencies: ["_IssueReporting"]
+      dependencies: ["IssueReporting"]
     ),
   ],
   swiftLanguageModes: [.v6]
@@ -52,3 +48,10 @@ for target in package.targets {
     .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
   ])
 }
+
+#if !os(Windows)
+  // Add the documentation compiler plugin if possible
+  package.dependencies.append(
+    .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0")
+  )
+#endif
